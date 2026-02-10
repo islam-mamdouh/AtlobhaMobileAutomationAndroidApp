@@ -30,7 +30,7 @@ public class CreatePricingOrderTest extends BaseTest {
         orderConfirmationPage = new OrderConfirmationPage(driver);
     }
 
-    @Test(description = "Guest user creates pricing order, logs in, adds address and car, then submits order")
+    @Test(description = "Guest user creates pricing order, logs in with new account, adds address and car, then submits order")
     public void testGuestPricingOrderWithLoginAndSetup() {
 
         // Step 1: Navigate to Pricing page
