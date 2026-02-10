@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Atlobha Mobile Automation Suite" verbose="1" parallel="false">
+
+    <listeners>
+        <listener class-name="com.atlobha.utils.ExtentReportListener"/>
+    </listeners>
+
+    <test name="Android Tests">
+        <classes>
+            <class name="com.atlobha.tests.SampleTest"/>
+        </classes>
+    </test>
+
+</suite>
