@@ -18,11 +18,13 @@ public class BaseTest {
                 .setDeviceName("Android Emulator")
                 .setPlatformName("Android")
                 .setAppPackage("com.atlobha.atlobha")
-                .setAppActivity("com.otlobha.otlobha.MainActivity")
+                .setAppActivity("com.otlobha.otlobha.splash.view.SplashActivity")
+                .setAutoGrantPermissions(true)
                 .setNoReset(true);
+        options.setCapability("appium:appWaitActivity", "*");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723"), options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
 
     @AfterMethod

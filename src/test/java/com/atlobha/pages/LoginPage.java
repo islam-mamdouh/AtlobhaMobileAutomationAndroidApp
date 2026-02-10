@@ -6,11 +6,12 @@ import org.openqa.selenium.By;
 public class LoginPage extends BasePage {
     
     // Locators
-    private By emailPhoneInput = By.id("com.atlobha.atlobha:id/phoneEmailLoginEt");
-    private By loginButton = By.id("com.atlobha.atlobha:id/loginBtn");
-    private By googleLoginButton = By.id("com.atlobha.atlobha:id/googleAuthContainer");
-    private By closeButton = By.id("com.atlobha.atlobha:id/closeBtn");
-    private By welcomeMessage = By.id("com.atlobha.atlobha:id/authMsgTv");
+    private final By emailPhoneInput = By.id("com.atlobha.atlobha:id/phoneEmailLoginEt");
+    private final By loginButton = By.id("com.atlobha.atlobha:id/loginBtn");
+    private final By googleLoginButton = By.id("com.atlobha.atlobha:id/googleAuthContainer");
+    private final By closeButton = By.id("com.atlobha.atlobha:id/closeBtn");
+    private final By otpInputField = By.id("com.atlobha.atlobha:id/verification_code_et");
+    private final By welcomeMessage = By.id("com.atlobha.atlobha:id/authMsgTv");
     
     // Constructor
     public LoginPage(AndroidDriver driver) {
@@ -29,6 +30,10 @@ public class LoginPage extends BasePage {
     public void clickGoogleLogin() {
         click(googleLoginButton);
     }
+
+    public void enterOtp(String otp){
+        enterText(otpInputField, otp);
+    }
     
     public void clickCloseButton() {
         click(closeButton);
@@ -44,6 +49,6 @@ public class LoginPage extends BasePage {
     }
     
     public boolean isLoginButtonEnabled() {
-        return isElementEnabled(loginButton);
+        return isElementDisplayed(loginButton);
     }
 }

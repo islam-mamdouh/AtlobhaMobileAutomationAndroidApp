@@ -15,6 +15,7 @@ public class AddNewAddressBottomSheetPage extends BasePage{
     // ===== Address Info =====
     private final By addressTitle = By.id("com.atlobha.atlobha:id/address_title");
     private final By addressDetailsText = By.id("com.atlobha.atlobha:id/address_details_tv");
+    private final By addAddressDetailsButton = By.id("com.atlobha.atlobha:id/create_address");
 
     // ===== Location Name Options =====
     private final By homeOption = By.xpath("//android.widget.TextView[@text='المنزل']");
@@ -29,9 +30,13 @@ public class AddNewAddressBottomSheetPage extends BasePage{
         super(driver);
     }
 
-        // ===== Actions =====
+    // ===== Actions =====
     public void closePage() {
         click(closeBtn);
+    }
+
+    public void clickAddaddressDetailsButton(){
+        click(addAddressDetailsButton);
     }
 
     public void selectHome() {
@@ -52,6 +57,7 @@ public class AddNewAddressBottomSheetPage extends BasePage{
 
     // ===== Complete Flow =====
     public void addHomeAddress(String nationalAddress) {
+        clickAddaddressDetailsButton();
         selectHome();
         enterNationalAddress(nationalAddress);
         clickAddAddress();
