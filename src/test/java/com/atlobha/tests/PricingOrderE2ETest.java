@@ -12,7 +12,7 @@ import com.atlobha.pages.NavMenuPage;
 import com.atlobha.pages.OrderConfirmationPage;
 import com.atlobha.pages.PricingPage;
 
-public class CreatePricingOrderTest extends BaseTest {
+public class PricingOrderE2ETest extends BaseTest {
     private OrderConfirmationPage orderConfirmationPage;
     private NavMenuPage navMenuPage;
     private PricingPage pricingPage;

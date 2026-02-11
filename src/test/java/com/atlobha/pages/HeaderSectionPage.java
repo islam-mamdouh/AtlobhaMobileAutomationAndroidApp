@@ -7,7 +7,7 @@ public class HeaderSectionPage extends BasePage {
     
     // Locators
     private By addressesView = By.id("com.atlobha.atlobha:id/toolbar_address_name_tv");
-    private By carsView = By.id("com.atlobha.atlobha:id/car_container_view");
+    private By carsView = By.id("com.atlobha.atlobha:id/car_plate_container");
     private By whatsAppIcon = By.id("com.atlobha.atlobha:id/icWhatsapp");
 
    // Constructor

@@ -8,11 +8,11 @@ public class NavBarPage extends BasePage {
     // ===== Bottom Navigation Bar Locators =====
     private final By bottomNavBar = By.id("com.atlobha.atlobha:id/bottom_nav_bar");
     private final By homeTab = By.id("com.atlobha.atlobha:id/navigation_home");
-    private final By myOrdersTab = By.id("com.atlobha.atlobha:id/navigation_my_orders");
+    private final By searchTab = By.id("com.atlobha.atlobha:id/navigation_my_orders");
     private final By menuTab = By.id("com.atlobha.atlobha:id/navigation_menu");
     private final By cartTab = By.id("com.atlobha.atlobha:id/cart");
     private final By moreTab = By.id("com.atlobha.atlobha:id/more");
-
+    private final By loginButton = By.id("com.atlobha.atlobha:id/loginBtn");
     // Constructor
     public NavBarPage(AndroidDriver driver) {
         super(driver);
@@ -23,8 +23,8 @@ public class NavBarPage extends BasePage {
         click(homeTab);
     }
 
-    public void clickMyOrdersTab() {
-        click(myOrdersTab);
+    public void clickSearchTab() {
+        click(searchTab);
     }
 
     public void clickMenuTab() {
@@ -39,6 +39,10 @@ public class NavBarPage extends BasePage {
         click(moreTab);
     }
 
+    public void clickLoginButton() {
+        click(loginButton);
+    }
+
     // ===== Verification Methods =====
     public boolean isBottomNavBarDisplayed() {
         return isElementDisplayed(bottomNavBar);
@@ -48,8 +52,8 @@ public class NavBarPage extends BasePage {
         return isElementDisplayed(homeTab);
     }
 
-    public boolean isMyOrdersTabDisplayed() {
-        return isElementDisplayed(myOrdersTab);
+    public boolean isSearchTabDisplayed() {
+        return isElementDisplayed(searchTab);
     }
 
     public boolean isMenuTabDisplayed() {
