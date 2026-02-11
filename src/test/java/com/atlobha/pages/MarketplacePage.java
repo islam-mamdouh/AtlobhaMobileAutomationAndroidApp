@@ -8,16 +8,12 @@ import java.util.List;
 
 public class MarketplacePage extends BasePage {
 
-    // ===== Swipe to Refresh =====
-    private final By swipeToRefresh = By.id("com.atlobha.atlobha:id/swipe_to_refresh");
-
     // ===== Quick Links =====
     private final By quickLinks = By.id("com.atlobha.atlobha:id/quick_link_iv");
 
     // ===== Section Titles & Show All =====
     private final By sectionTitles = By.id("com.atlobha.atlobha:id/section_title");
-    private final By showAllButtons = By.id("com.atlobha.atlobha:id/showAllTv");
-
+    
     // ===== Product Categories - تصنيفات اطلبها =====
     private final By categoriesSectionTitle = By.xpath(
         "//android.widget.TextView[@resource-id='com.atlobha.atlobha:id/section_title' and @text='تصنيفات اطلبها']");
