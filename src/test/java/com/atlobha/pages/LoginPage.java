@@ -48,7 +48,7 @@ public class LoginPage extends BasePage {
         return getText(welcomeMessage);
     }
     
-    public boolean isLoginButtonEnabled() {
+    public boolean isLoginButtonDisplayed() {
         return isElementDisplayed(loginButton);
     }
 }

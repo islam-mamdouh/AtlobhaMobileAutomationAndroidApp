@@ -21,40 +21,28 @@ public class BasePage {
     protected WebDriverWait wait;
     protected WebDriverWait shortWait;
 
-    private static final int DEFAULT_TIMEOUT = 15;
-    private static final int SHORT_TIMEOUT = 5;
-
     public BasePage(AndroidDriver driver) {
-        this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(DEFAULT_TIMEOUT));
-        this.shortWait = new WebDriverWait(driver, Duration.ofSeconds(SHORT_TIMEOUT));
-        this.wait.ignoring(StaleElementReferenceException.class);
-        this.shortWait.ignoring(StaleElementReferenceException.class);
-    }
+    this.driver = driver;
+    this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+     }
 
     // ================================================================
     // ===== CORE ACTION METHODS (with explicit waits) ================
     // ================================================================
 
     protected void click(By locator) {
-        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+    wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
 
     protected String getText(By locator) {
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+    return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
     }
 
     protected void enterText(By locator, String text) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
-        element.click();
-        element.sendKeys(text);
-    }
-
-    protected void clearAndEnterText(By locator, String text) {
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
-        element.click();
-        element.clear();
-        element.sendKeys(text);
+    WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    element.click();
+    element.clear();
+    element.sendKeys(text);
     }
 
     // ================================================================

@@ -115,7 +115,7 @@ public class AddNewaddressTest extends BaseTest {
         Assert.assertTrue(addNewAddressPage.isMapDisplayed(), "Map should be displayed on add address page");
 
         // Step 8: Add a Work address with national address
-        addNewAddressPage.clickAddaddressDetailsButton();
+        addNewAddressPage.clickAddAddressDetailsButton();
         addNewAddressPage.selectWork();
         addNewAddressPage.enterNationalAddress("RKAH4521");
         addNewAddressPage.clickAddAddress();

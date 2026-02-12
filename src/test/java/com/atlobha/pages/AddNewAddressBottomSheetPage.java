@@ -35,7 +35,7 @@ public class AddNewAddressBottomSheetPage extends BasePage{
         click(closeBtn);
     }
 
-    public void clickAddaddressDetailsButton(){
+    public void clickAddAddressDetailsButton(){
         click(addAddressDetailsButton);
     }
 
@@ -57,13 +57,14 @@ public class AddNewAddressBottomSheetPage extends BasePage{
 
     // ===== Complete Flow =====
     public void addHomeAddress(String nationalAddress) {
-        clickAddaddressDetailsButton();
+        clickAddAddressDetailsButton();
         selectHome();
         enterNationalAddress(nationalAddress);
         clickAddAddress();
     }
 
     public void addWorkAddress(String nationalAddress) {
+        clickAddAddressDetailsButton();
         selectWork();
         enterNationalAddress(nationalAddress);
         clickAddAddress();

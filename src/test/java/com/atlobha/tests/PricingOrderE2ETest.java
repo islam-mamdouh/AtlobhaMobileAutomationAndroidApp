@@ -42,36 +42,36 @@ public class PricingOrderE2ETest extends BaseTest {
         pricingPage.addPart("فلتر زيت", 2);
         Assert.assertTrue(pricingPage.isPartDisplayed("فلتر زيت"), "Part should be added to the list");
 
-        // Step 4: Click Price Order (triggers login for guest)
+        // Step 3: Click Price Order (triggers login for guest)
         pricingPage.clickPriceOrder();
 
-        // Step 5: Login with phone number
+        // Step 4: Login with phone number
         Assert.assertTrue(loginPage.isLoginScreenDisplayed(), "Login screen should appear for guest user");
         loginPage.enterEmailOrPhone("562939492");
         loginPage.clickLoginButton();
         loginPage.enterOtp("123456");
 
-        // Step 6: Click Price Order Button
+        // Step 5: Click Price Order Button
         pricingPage.clickPriceOrder();
 
-        // Step 7: Add Car popup appears
+        // Step 6: Add Car popup appears
         addNewCarPage.addNewCar("تويوتا", "كامري", "2023", "rtunad5198jk78g56", false);
 
-        // Step 8: Click Price Order Button
+        // Step 7: Click Price Order Button
         pricingPage.clickPriceOrder();
 
-        // Step 9: Add Address popup appears
+        // Step 8: Add Address popup appears
         addNewAddressPage.addHomeAddress("RSFA1234");
 
-        // Step 10: Add Promocode And Comment
+        // Step 9: Add Promocode And Comment
         pricingPage.enterPromoCode("FD5");
         pricingPage.clickActivatePromo();
         pricingPage.enterComment("يرجي الالتزام بالموعد");
 
-        // Step 11: Click Price Order Button
+        // Step 10: Click Price Order Button
         pricingPage.clickPriceOrder();
 
-        // Step 12: Verify order confirmation
+        // Step 11: Verify order confirmation
         Assert.assertTrue(orderConfirmationPage.isPageDisplayed(), 
             "Order confirmation page should be displayed");
         Assert.assertTrue(orderConfirmationPage.isOrderNumberDisplayed(), 
@@ -81,7 +81,7 @@ public class PricingOrderE2ETest extends BaseTest {
         System.out.println("Order created successfully! Order Number: " + orderNumber);
         Assert.assertFalse(orderNumber.isEmpty(), "Order number should not be empty");
 
-        // Step 13: Navigate To My Orders Screen
+        // Step 12: Navigate To My Orders Screen
         orderConfirmationPage.clickDismiss();
 
     }

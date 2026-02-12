@@ -30,11 +30,11 @@ public class MarketplaceCheckoutPage extends BasePage{
     // ===== Discount & Voucher =====
     private final By discountCouponBtn = By.id("com.atlobha.atlobha:id/discountCouponBtn");
     private final By closeDiscountViewBtn = By.id("com.atlobha.atlobha:id/close_btn");
-    private final By discountinputField = By.id("com.atlobha.atlobha:id/voucher_container");
+    private final By discountInputField = By.id("com.atlobha.atlobha:id/voucher_container");
     private final By addDiscountBtn = By.id("com.atlobha.atlobha:id/ok_btn");
     private final By voucherCouponBtn = By.id("com.atlobha.atlobha:id/voucherCouponBtn");
     private final By closeVoucherViewBtn = By.id("com.atlobha.atlobha:id/close_btn");
-    private final By voucherinputField = By.id("com.atlobha.atlobha:id/voucher_container");
+    private final By voucherInputField = By.id("com.atlobha.atlobha:id/voucher_container");
     private final By addVoucherBtn = By.id("com.atlobha.atlobha:id/ok_btn");
 
     // ===== Order Summary =====
@@ -119,7 +119,7 @@ public class MarketplaceCheckoutPage extends BasePage{
     }
 
     public void enterDiscountCode(String code){
-        enterText(discountinputField, code);
+        enterText(discountInputField, code);
     }
 
     public void clickAddDiscountBtn(){
@@ -135,7 +135,7 @@ public class MarketplaceCheckoutPage extends BasePage{
     }
 
     public void enterVoucherCode(String code){
-        enterText(voucherinputField, code);
+        enterText(voucherInputField, code);
     }
 
     public void clickAddVoucherBtn(){

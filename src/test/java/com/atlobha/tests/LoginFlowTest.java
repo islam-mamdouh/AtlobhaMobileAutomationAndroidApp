@@ -26,76 +26,54 @@ public class LoginFlowTest extends BaseTest {
         headerSectionPage = new HeaderSectionPage(driver);
     }
 
-    @Test(priority = 1, description = "Login via Profile - More Button Flow")
-    public void testLoginViaMoreButton() {
-
-        // Step 2: Close nav menu
-        navMenuPage.closeMenu();
-        
-        // Step 3: Click More/Profile button
-        navBarPage.clickMoreTab();
-        navBarPage.clickLoginButton();      
-        
-        // Step 5: Perform login
-        Assert.assertTrue(loginPage.isLoginScreenDisplayed(), "Login screen should be displayed");
-        loginPage.enterEmailOrPhone("562939492");
+    // ✅ HELPER METHOD: Perform login with OTP
+    private void performLogin(String phoneNumber, String otp) {
+        Assert.assertTrue(loginPage.isLoginScreenDisplayed(), 
+            "Login screen should be displayed");
+        loginPage.enterEmailOrPhone(phoneNumber);
         loginPage.clickLoginButton();
-        loginPage.enterOtp("123456");
-        
-        // Step 6: Verify login success and logout
+        loginPage.enterOtp(otp);
+        System.out.println("✅ Login completed with: " + phoneNumber);
+    }
+
+    // ✅ HELPER METHOD: Verify and perform logout
+    private void verifyAndLogout() {
         navBarPage.clickMoreTab();
-        Assert.assertTrue(profilePage.isLogOutButtonDisplayed(), "Logout button should be visible after login");
+        Assert.assertTrue(profilePage.isLogOutButtonDisplayed(), 
+            "Logout button should be visible after login");
         profilePage.clickLogOutButton();
         profilePage.clickConfirmLogOut();
+        System.out.println("✅ Logout completed");
+        waitInSeconds(2); // Wait for logout to complete
+    }
+
+    @Test(priority = 1, description = "Login via Profile - More Button Flow")
+    public void testLoginViaMoreButton() {
+        navMenuPage.closeMenu();
+        navBarPage.clickMoreTab();
+        navBarPage.clickLoginButton(); 
+        performLogin("562939492", "123456"); 
+        verifyAndLogout();                     
         
         System.out.println("✅ Login via More Button - Test Passed");
-        waitInSeconds(2); // Small wait to ensure logout process completes before next test
     }
     
     @Test(priority = 2, description = "Login via Add Car Flow")
     public void testLoginViaAddCar() {
-        // Step 1: Close nav menu
         navMenuPage.closeMenu();
-        
-        // Step 2: Click on Add Car (triggers login for guest)
         headerSectionPage.clickMyCarsView();
-        
-        // Step 3: Perform login
-        Assert.assertTrue(loginPage.isLoginScreenDisplayed(), "Login screen should appear for guest user");
-        loginPage.enterEmailOrPhone("562939492");
-        loginPage.clickLoginButton();
-        loginPage.enterOtp("123456");
-        
-        // Step 4: Verify login success and logout
-        navBarPage.clickMoreTab();
-        Assert.assertTrue(profilePage.isLogOutButtonDisplayed(), "Logout button should be visible after login");
-        profilePage.clickLogOutButton();
-        profilePage.clickConfirmLogOut();
+        performLogin("562939492", "123456");  
+        verifyAndLogout();                     
         
         System.out.println("✅ Login via Add Car - Test Passed");
-         waitInSeconds(2); // Small wait to ensure logout process completes before next test
-
     }
     
     @Test(priority = 3, description = "Login via Add Address Flow")
     public void testLoginViaAddAddress() {
-        // Step 1: Close nav menu
         navMenuPage.closeMenu();
-        
-        // Step 2: Click on Add Address (triggers login for guest)
-        headerSectionPage.clickMyaddressesView();
-        
-        // Step 3: Perform login
-        Assert.assertTrue(loginPage.isLoginScreenDisplayed(), "Login screen should appear for guest user");
-        loginPage.enterEmailOrPhone("562939492");
-        loginPage.clickLoginButton();
-        loginPage.enterOtp("123456");
-        
-        // Step 4: Verify login success and logout
-        navBarPage.clickMoreTab();
-        Assert.assertTrue(profilePage.isLogOutButtonDisplayed(), "Logout button should be visible after login");
-        profilePage.clickLogOutButton();
-        profilePage.clickConfirmLogOut();
+        headerSectionPage.clickMyaddressesView();      
+        performLogin("562939492", "123456");  
+        verifyAndLogout();                     
         
         System.out.println("✅ Login via Add Address - Test Passed");
     }
