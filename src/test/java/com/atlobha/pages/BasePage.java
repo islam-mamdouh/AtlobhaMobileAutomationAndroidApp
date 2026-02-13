@@ -4,7 +4,6 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.PointerInput;
@@ -24,6 +23,7 @@ public class BasePage {
     public BasePage(AndroidDriver driver) {
     this.driver = driver;
     this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    this.shortWait = new WebDriverWait(driver, Duration.ofSeconds(3));
      }
 
     // ================================================================
@@ -66,6 +66,14 @@ public class BasePage {
         }
     }
 
+    protected boolean isElementSelected(By locator) {
+        try {
+            return driver.findElement(locator).isSelected();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
     // ================================================================
     // ===== WAIT HELPERS =============================================
     // ================================================================
@@ -90,10 +98,10 @@ public class BasePage {
     }
 
     public void waitInSeconds(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+       try {
+           Thread.sleep(seconds * 1000);
+        }  catch (InterruptedException e) {
+        e.printStackTrace();
         }
     }
 
@@ -134,7 +142,6 @@ public class BasePage {
         int startY = (int) (size.height * 0.7);
         int endY = (int) (size.height * 0.3);
         swipe(startX, startY, startX, endY, 500);
-        waitInSeconds(1);
     }
 
     protected void scrollUp() {
@@ -143,7 +150,6 @@ public class BasePage {
         int startY = (int) (size.height * 0.3);
         int endY = (int) (size.height * 0.7);
         swipe(startX, startY, startX, endY, 500);
-        waitInSeconds(1);
     }
 
     protected void pullToRefresh() {
@@ -152,7 +158,6 @@ public class BasePage {
         int startY = (int) (size.height * 0.2);
         int endY = (int) (size.height * 0.8);
         swipe(startX, startY, startX, endY, 800);
-        waitInSeconds(2);
     }
 
     protected void tapByCoordinates(int x, int y) {

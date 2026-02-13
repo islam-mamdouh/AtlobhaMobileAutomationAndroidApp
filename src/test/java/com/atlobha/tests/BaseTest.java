@@ -46,7 +46,6 @@ public class BaseTest {
     UiAutomator2Options options = new UiAutomator2Options()
             .setDeviceName(config.getProperty("device.name"))           // Reads from config
             .setPlatformName("Android")
-            .setPlatformVersion("16")
             .setAppPackage(config.getProperty("app.package"))           // Reads from config
             .setAppActivity(config.getProperty("app.activity"))         // Reads from config
             .setAutoGrantPermissions(true)
@@ -81,40 +80,12 @@ public class BaseTest {
         }
     }
 
-    // Wait helper method
+    // Wait Helpere Method
     public void waitInSeconds(int seconds) {
-        try {
-            Thread.sleep(seconds * 1000);
-            System.out.println("⏸️  Waiting " + seconds + " seconds...");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    try {
+        Thread.sleep(seconds * 1000);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
     }
-
-    // Helper method to check if an element is displayed
-    protected boolean isElementDisplayed(By locator) {
-        try {
-            return driver.findElement(locator).isDisplayed();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    // Helper method to check if an element is enabled
-    protected boolean isElementEnabled(By locator) {
-        try {
-            return driver.findElement(locator).isEnabled();
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    // Helper method to check if an element is selected
-    protected boolean isElementSelected(By locator) {
-        try {
-            return driver.findElement(locator).isSelected();
-        } catch (Exception e) {
-            return false;
-        }
-    }
+}
 }

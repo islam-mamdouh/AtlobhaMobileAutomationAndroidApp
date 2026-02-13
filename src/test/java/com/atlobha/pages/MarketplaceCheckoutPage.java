@@ -27,16 +27,12 @@ public class MarketplaceCheckoutPage extends BasePage{
     private final By tabbyPayment = By.xpath("//android.widget.TextView[@resource-id='com.atlobha.atlobha:id/payment_text_tv' and @text='تابي']/ancestor::android.view.ViewGroup[1]/preceding-sibling::android.widget.ImageView[@resource-id='com.atlobha.atlobha:id/checkbox']");
     private final By tamaraPayment = By.xpath("//android.widget.TextView[@resource-id='com.atlobha.atlobha:id/payment_text_tv' and @text='تمارا']/ancestor::android.view.ViewGroup[1]/preceding-sibling::android.widget.ImageView[@resource-id='com.atlobha.atlobha:id/checkbox']");
     private final By mispayPayment = By.xpath("//android.widget.TextView[@resource-id='com.atlobha.atlobha:id/payment_text_tv' and @text='MISpay']/ancestor::android.view.ViewGroup[1]/preceding-sibling::android.widget.ImageView[@resource-id='com.atlobha.atlobha:id/checkbox']");
-    // ===== Discount & Voucher =====
+    // ===== Discount & Voucher (shared bottom sheet) =====
     private final By discountCouponBtn = By.id("com.atlobha.atlobha:id/discountCouponBtn");
-    private final By closeDiscountViewBtn = By.id("com.atlobha.atlobha:id/close_btn");
-    private final By discountInputField = By.id("com.atlobha.atlobha:id/voucher_container");
-    private final By addDiscountBtn = By.id("com.atlobha.atlobha:id/ok_btn");
     private final By voucherCouponBtn = By.id("com.atlobha.atlobha:id/voucherCouponBtn");
-    private final By closeVoucherViewBtn = By.id("com.atlobha.atlobha:id/close_btn");
-    private final By voucherInputField = By.id("com.atlobha.atlobha:id/voucher_container");
-    private final By addVoucherBtn = By.id("com.atlobha.atlobha:id/ok_btn");
-
+    private final By couponCloseBtn = By.id("com.atlobha.atlobha:id/close_btn");
+    private final By couponInputField = By.id("com.atlobha.atlobha:id/voucher_container");
+    private final By couponSubmitBtn = By.id("com.atlobha.atlobha:id/ok_btn");
     // ===== Order Summary =====
     private final By productsPrice = By.id("com.atlobha.atlobha:id/productsPriceTv");
     private final By deliveryFee = By.id("com.atlobha.atlobha:id/deliveryFeeTv");
@@ -109,37 +105,37 @@ public class MarketplaceCheckoutPage extends BasePage{
         click(mispayPayment);
     }
 
-    // ===== Discount & Voucher =====
+// ===== Discount & Voucher =====
     public void clickAddDiscountCode() {
-        click(discountCouponBtn);
+       click(discountCouponBtn);
     }
 
     public void clickCloseDiscountView(){
-        click(closeDiscountViewBtn);
+       click(couponCloseBtn);
     }
 
     public void enterDiscountCode(String code){
-        enterText(discountInputField, code);
+       enterText(couponInputField, code);
     }
 
     public void clickAddDiscountBtn(){
-        click(addDiscountBtn);
+       click(couponSubmitBtn);
     }
 
     public void clickAddVoucher() {
-        click(voucherCouponBtn);
+       click(voucherCouponBtn);
     }
 
     public void clickCloseVoucherView(){
-        click(closeVoucherViewBtn);
+       click(couponCloseBtn);
     }
 
     public void enterVoucherCode(String code){
-        enterText(voucherInputField, code);
+       enterText(couponInputField, code);
     }
 
     public void clickAddVoucherBtn(){
-        click(addVoucherBtn);
+       click(couponSubmitBtn);
     }
 
     // ===== Complete Order =====

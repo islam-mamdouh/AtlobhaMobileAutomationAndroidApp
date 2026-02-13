@@ -2,15 +2,17 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Atlobha Mobile Automation Suite" verbose="1" parallel="false">
 
-    <test name="Android Tests">
-      <classes>
-        <class name="com.atlobha.tests.SampleTest"/>
-        <class name="com.atlobha.tests.LoginTest"/>
-        <class name="com.atlobha.tests.NavBarTest"/>
-        <class name="com.atlobha.tests.PricingOrderE2ETest"/>
-        <class name="com.atlobha.tests.MarketplaceOrderE2ETestE2ETest"/>
-        <class name="com.atlobha.tests.AddNewAddressTest"/>
-        <class name="com.atlobha.tests.AddNewCarTest"/>
-     </classes>
-    </test>
+<test name="Android Tests">
+  <classes>
+    <class name="com.atlobha.tests.SampleTest"/>
+    <class name="com.atlobha.tests.LoginFlowTest"/>
+    <class name="com.atlobha.tests.NavBarTest"/>
+    <class name="com.atlobha.tests.PricingOrderE2ETest"/>
+    <class name="com.atlobha.tests.MarketplaceOrderE2ETest"/>
+    <class name="com.atlobha.tests.AddNewaddressTest"/>
+    <class name="com.atlobha.tests.AddNewCarTest"/>
+    <class name="com.atlobha.tests.SearchTest"/>
+  </classes>
+</test>
+
 </suite>

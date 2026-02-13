@@ -41,14 +41,8 @@ public class MarketplaceOrderE2ETest extends BaseTest {
         // ============================================================
         // Step 1: Close the Navigation Menu (bottom sheet popup)
         // ============================================================
-
-        try {
-            Thread.sleep(5000);
-            if (navMenuPage.isMenuDisplayed()) {
-        navMenuPage.closeMenu();
-            }
-        } catch (Exception e) {
-          System.out.println("Nav menu not displayed, skipping close");
+        if (navMenuPage.isMenuDisplayed()) {
+           navMenuPage.closeMenu();
         }
 
         // Verify marketplace home screen is displayed
@@ -87,7 +81,6 @@ public class MarketplaceOrderE2ETest extends BaseTest {
         // ============================================================
         navBarPage.clickCartTab();
 
-        // Verify cart loaded with products
         Assert.assertTrue(cartPage.getProductCount() >= 3,
             "Cart should contain at least 3 products");
         System.out.println("Cart has " + cartPage.getProductCount() + " products");
@@ -111,7 +104,6 @@ public class MarketplaceOrderE2ETest extends BaseTest {
         // ============================================================
         // Step 6: Delete item from cart (Product 3 - remove by decreasing to 0)
         // ============================================================
-        // Product 3 has quantity 1, decreasing it should remove it from cart
         int countBefore = cartPage.getProductCount();
         cartPage.decreaseProductQuantityByIndex(2);
         int countAfter = cartPage.getProductCount();
@@ -125,7 +117,6 @@ public class MarketplaceOrderE2ETest extends BaseTest {
         // ============================================================
         // Step 8: Perform Login (guest → login flow triggered)
         // ============================================================
-        // Login screen appears because user is not logged in
         Assert.assertTrue(loginPage.isLoginScreenDisplayed(),
             "Login screen should be displayed for guest checkout");
 
@@ -141,7 +132,6 @@ public class MarketplaceOrderE2ETest extends BaseTest {
         // ============================================================
         // Step 9: Add Address
         // ============================================================
-        // After login, app may ask for address
         addNewAddressPage.addHomeAddress("LMYR5698");
 
         // ============================================================

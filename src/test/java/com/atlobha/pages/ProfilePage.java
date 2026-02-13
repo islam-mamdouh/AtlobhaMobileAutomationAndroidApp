@@ -6,17 +6,17 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class ProfilePage extends BasePage {
 
-     private By profileContainer = By.id("com.atlobha.atlobha:id/profileContainer");
-     private By walletBalanceContainer = By.id("com.atlobha.atlobha:id/balanceContainer");
-     private By myOrdersContainer = By.id("com.atlobha.atlobha:id/ordersContainer");
-     private By myAddressesContainer = By.id("com.atlobha.atlobha:id/addressContainer");
-     private By myCarsContainer = By.id("com.atlobha.atlobha:id/carsContainer");
-     private By myCardsContainer = By.id("com.atlobha.atlobha:id/cardsContainer");
-     private By giftCardsButton = By.id("com.atlobha.atlobha:id/giftCardsTv");
-     private By languagesButton = By.id("com.atlobha.atlobha:id/language_title");
-     private By LogOutButton = By.id("com.atlobha.atlobha:id/action_logout");
-     private By confirmLogOutButton = By.id("android:id/button1");
-     private By cancelLogOutButton = By.id("android:id/button2");
+     private final By profileContainer = By.id("com.atlobha.atlobha:id/profileContainer");
+     private final By walletBalanceContainer = By.id("com.atlobha.atlobha:id/balanceContainer");
+     private final By myOrdersContainer = By.id("com.atlobha.atlobha:id/ordersContainer");
+     private final By myAddressesContainer = By.id("com.atlobha.atlobha:id/addressContainer");
+     private final By myCarsContainer = By.id("com.atlobha.atlobha:id/carsContainer");
+     private final By myCardsContainer = By.id("com.atlobha.atlobha:id/cardsContainer");
+     private final By giftCardsButton = By.id("com.atlobha.atlobha:id/giftCardsTv");
+     private final By languagesButton = By.id("com.atlobha.atlobha:id/language_title");
+     private final By logoutButton = By.id("com.atlobha.atlobha:id/action_logout");
+     private final By confirmLogOutButton = By.id("android:id/button1");
+     private final By cancelLogOutButton = By.id("android:id/button2");
 
     public ProfilePage(AndroidDriver driver) {
         super(driver);
@@ -52,7 +52,7 @@ public class ProfilePage extends BasePage {
     }
 
     public void clickLogOutButton() {
-        click(LogOutButton);
+        click(logoutButton);
     }
 
     public void clickConfirmLogOut() {
@@ -97,7 +97,7 @@ public class ProfilePage extends BasePage {
     }
 
     public boolean isLogOutButtonDisplayed() {
-        return isElementDisplayed(LogOutButton);
+        return isElementDisplayed(logoutButton);
     }
     
 }
